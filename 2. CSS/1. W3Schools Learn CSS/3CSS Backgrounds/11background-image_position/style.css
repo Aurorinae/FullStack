@@ -1,0 +1,26 @@
+.position-left {
+    background-image: url("https://www.w3schools.com/css/img_tree.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    margin-right: 200px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.position-center {
+    background-image: url("https://www.w3schools.com/css/img_tree.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    margin-right: 200px;
+    height: 250px;
+    border: 1px solid black;
+}
+
+.position-right {
+    background-image: url("https://www.w3schools.com/css/img_tree.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    margin-right: 200px;
+    height: 250px;
+    border: 1px solid black;
+}

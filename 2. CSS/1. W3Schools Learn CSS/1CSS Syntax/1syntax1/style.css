@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+}
+
+p {
+    color: red;
+    text-align: center;
+    background-color: aliceblue;
+}
