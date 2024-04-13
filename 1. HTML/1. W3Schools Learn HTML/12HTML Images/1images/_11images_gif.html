@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Reversible con gif.js</title>
+    <script src="https://cdn.rawgit.com/jnordberg/gif.js/master/dist/gif.js"></script>
+</head>
+
+<body>
+
+    <h2>Animated Images</h2>
+
+    <p>HTML allows moving images:</p>
+
+    <img id="gifImage" src="https://media.tenor.com/F4ipcuM9sL8AAAAC/furina-focalors.gif" alt="Computer man"
+        width="22.5%">
+    <img src="https://media.tenor.com/F4ipcuM9sL8AAAAC/furina-focalors.gif" alt="Computer man" width="22.5%">
+
+    <script>
+        var gifImage = document.getElementById('gifImage');
+        var gifSrc = gifImage.src;
+
+        gifImage.addEventListener('load', function () {
+            // Cargar el GIF original y su versión invertida
+            var img = new Image();
+            var imgReverse = new Image();
+
+            img.src = gifSrc;
+            imgReverse.src = gifSrc;
+
+            imgReverse.addEventListener('load', function () {
+                // Invertir el segundo GIF
+                var canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                var ctx = canvas.getContext('2d');
+                ctx.scale(-1, 1);
+                ctx.drawImage(imgReverse, -canvas.width, 0);
+
+                // Crear un objeto gif.js
+                var gif = new GIF({
+                    workers: 2,
+                    quality: 10
+                });
+
+                // Añadir ambos GIFs al objeto gif.js
+                gif.addFrame(img);
+                gif.addFrame(canvas, { copy: true });
+
+                // Configurar el elemento img para mostrar el GIF
+                gifImage.src = URL.createObjectURL(gif.render());
+            });
+        });
+    </script>
+</body>
+
+</html>

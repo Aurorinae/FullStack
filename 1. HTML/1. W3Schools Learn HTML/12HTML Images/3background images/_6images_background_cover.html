@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-image: url('https://pbs.twimg.com/media/GCJtjObXYAAtwiI?format=jpg&name=4096x4096');
+            background-repeat: no-repeat;
+            /* A ver si lo logro explicar de manera correcta. El background attachment en fixed funciona para las situaciones
+            donde el alto de la imagen abarca el alto de la página en relación con el ancho de la imagen.
+            La forma "normal" de funcionar del tamaño de la imagen, es que dependiendo de el tamaño de la pestaña, la imagen se va a ajustar horizontalmente para 
+            abarcar tanto el ancho como el alto de la página
+            
+            Pero cuando la pestaña se hace muy chico, (ya no sigue la misma relación de aspecto de la imagen) hay dos situaciones que puedan suceder, que
+            que se siga con el mismo "mecanismo" y seguir achicando el ancho de la imagen según el ancho de la pestaña y que la altura también se ajuste
+            ocasionando que no toda la imagen cubra toda la página, porque la altura será menor que el de la página por haber hecho que el ancho se ajuste según el ancho de la página
+            
+            La otra situación es que cuando la relación del tamaño de la página es inversa al de la imagen, la imagen conserve su alto siempre y cuando el
+            ancho se achique, en vez de achicar tanto el ancho y altura de la imagen, la anchura de la imagen será cortada y la imagen no se reescalará
+            ocasionando que siempre en todo momento la imagen cubra la página
+            ESTO ES TENIENDO FIXED*/
+
+            /* Lo que ocurre con background-attachment se logra observar cuando la relación de aspecto es diferente
+            entre la imagen y la pestaña. Por ejemplo, si se tiene una relación de especto en la imagen, donde el ancho
+            es mayor que la altura, 20px/10px, y una imagen con esa misma relación, la imagen siempre se ajustará correctamente
+            
+            Pero en el momento en que es al revés, que no coincidan en esa "regla", sucederá 1 de dos situaciones, según se haya
+            configurado el background-attachment*/
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Background Cover</h2>
+
+    <p>Set the background-size property to "cover" and the background image will cover the entire element, in this case
+        the body element.</p>
+
+</body>
+
+</html>
